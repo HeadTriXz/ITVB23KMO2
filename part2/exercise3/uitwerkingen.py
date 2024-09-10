@@ -48,4 +48,4 @@ def save_model(model: keras.Model) -> None:
 
     :param model: The model to save.
     """
-    model.save("model.keras")
+    model.save("../../models/model.keras")
