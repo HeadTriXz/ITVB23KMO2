@@ -3,14 +3,12 @@ import numpy as np
 
 from matplotlib import cm
 
-
 # OPGAVE 1
 def draw_graph(data: np.ndarray) -> None:
     """
-    Deze methode tekent een scatter-plot van de data die als parameter aan deze functie wordt meegegeven.
+    Draw a scatter plot of the given data.
 
-    :param data: Een twee-dimensionale matrix met in de eerste kolom de grootte van de steden,
-                 in de tweede kolom de winst van de vervoerder.
+    :param data: The data to plot.
     """
     plt.scatter(data[:, 0], data[:, 1])
     plt.xlabel("Population in 10,000s")
@@ -21,15 +19,12 @@ def draw_graph(data: np.ndarray) -> None:
 # OPGAVE 2
 def compute_cost(X: np.ndarray, y: np.ndarray, theta: np.ndarray) -> float:
     """
-    Deze methode berekent de kosten van de huidige waarden van theta, dat wil zeggen de mate waarin de
-    voorspelling (gegeven de specifieke waarde van theta) correspondeert met de werkelijke waarde (die
-    is gegeven in y).
+    Compute the cost of the current values of theta.
 
-    Elk datapunt in X wordt hierin vermenigvuldigd met theta (welke dimensies hebben X en dus theta?)
-    en het resultaat daarvan wordt vergeleken met de werkelijke waarde (dus met y). Het verschil tussen
-    deze twee waarden wordt gekwadrateerd en het totaal van al deze kwadraten wordt gedeeld door het
-    aantal data-punten om het gemiddelde te krijgen. Dit gemiddelde moet je retourneren (de variabele
-    J: een getal, kortom).
+    :param X: The features.
+    :param y: The actual values.
+    :param theta: The weights of the model.
+    :return: The cost of the prediction.
     """
     m = len(y)
     predictions = np.dot(X, theta)
@@ -47,12 +42,14 @@ def gradient_descent(
         num_iters: int
 ) -> tuple[np.ndarray, list[float]]:
     """
-    In deze opgave wordt elke parameter van theta num_iter keer geüpdate om de optimale waarden
-    voor deze parameters te vinden. Per iteratie moet je alle parameters van theta update.
+    Perform gradient descent to find the optimal values for theta.
 
-    Elke parameter van theta wordt verminderd met de som van de fout van alle datapunten
-    vermenigvuldigd met het datapunt zelf (zie Blackboard voor de formule die hierbij hoort).
-    Deze som zelf wordt nog vermenigvuldigd met de 'learning rate' alpha.
+    :param X: The features.
+    :param y: The actual values.
+    :param theta: The initial weights of the model.
+    :param alpha: The learning rate.
+    :param num_iters: The number of iterations.
+    :return: The optimal weights of the model and the costs during training.
     """
     m, n = X.shape
     costs = []
@@ -70,6 +67,11 @@ def gradient_descent(
 
 # OPGAVE 3b
 def draw_costs(data: list[float]) -> None:
+    """
+    Plot the costs during training.
+
+    :param data: The costs during training.
+    """
     plt.plot(data)
     plt.xlabel("Iterations")
     plt.ylabel("Cost")
@@ -79,14 +81,10 @@ def draw_costs(data: list[float]) -> None:
 # OPGAVE 4
 def contour_plot(X: np.ndarray, y: np.ndarray) -> None:
     """
-    Deze methode tekent een contour plot voor verschillende waarden van theta_0 en theta_1.
-    De infrastructuur en algemene opzet is al gegeven; het enige wat je hoeft te doen is
-    de matrix J_vals vullen met waarden die je berekent aan de hand van de methode computeCost,
-    die je hierboven hebt gemaakt.
+    Draw a contour plot for different values of theta_0 and theta_1.
 
-    Je moet hiervoor door de waarden van t1 en t2 itereren, en deze waarden in een ndarray
-    zetten. Deze ndarray kun je vervolgens meesturen aan de functie computeCost. Bedenk of je nog een
-    transformatie moet toepassen of niet. Let op: je moet computeCost zelf *niet* aanpassen.
+    :param X: The features.
+    :param y: The actual values.
     """
     fig = plt.figure()
     ax = fig.add_subplot(projection="3d")
