@@ -26,5 +26,6 @@ The exercises are available in the following formats:
 | **Part 3: Model Evaluation**      | [**(Script)** Model Evaluation](./part3/exercise3.py)                                 |
 |                                   | [**(Notebook)** Model Evaluation](./part3/notebook%20model-evalutation.ipynb)         |
 |                                   | [**(Notebook)** DBSCAN](./part3/notebook%20dbscan.ipynb)                              |
-| **Part 4: Large Language Models** | [**(Notebook)** Word Embeddings](./part4/exercise1.ipynb)                             |
-|                                   | [**(Notebook)** N-grams](./part4/exercise2.ipynb)                                     |
+| **Part 4: Large Language Models** | [**(Notebook)** Word Embeddings](./part4/exercise1/exercise1.ipynb)                   |
+|                                   | [**(Notebook)** N-grams](./part4/exercise2/exercise2.ipynb)                           |
+|                                   | [**(Notebook)** Goldberg Variations](./part4/exercise3/exercise3.ipynb)               |
